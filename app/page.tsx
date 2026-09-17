@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-[#30302e] font-sans dark:bg-[#30302e]">
       <Header />
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-[#30302e] dark:bg-black sm:items-start sm:text-left">
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-16 px-16 bg-[#30302e] dark:bg-black sm:items-start sm:text-left">
+        <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
           <TypingAnimation
             text={title}
             className="text-4xl font-bold leading-snug  w-full"
@@ -30,7 +30,7 @@ export default function Home() {
             </p>
           </div>
         </div>
-<div className="flex flex-col sm:w-full space-y-6 text-white">
+          <div className="flex flex-col sm:w-full space-y-6 text-white mt-8">
           <p className="font-medium text-sm sm:text-base">
              I have worked with technologies such as Python, SQL, Next.js, AWS, 
              and have some experience with Kubernetes and cloud-based environments. 
