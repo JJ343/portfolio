@@ -12,15 +12,14 @@ export function TypingAnimation({
   speed?: number;
 }) {
   const [count, setCount] = useState(0);
-  const done = count >= text.length;
 
   useEffect(() => {
-    if (done) return;
+    if (count >= text.length) return;
     const char = text[count];
     const delay = char === "\n" ? speed * 6 : speed;
     const id = setTimeout(() => setCount((c) => c + 1), delay);
     return () => clearTimeout(id);
-  }, [count, text, speed, done]);
+  }, [count, text, speed]);
 
   return (
     <div

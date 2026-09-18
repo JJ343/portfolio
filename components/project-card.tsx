@@ -9,6 +9,7 @@ interface ProjectCardProps {
   description: string;
   imageUrl: string;
   altText?: string;
+  tags?: string[];
 }
 
 export function ProjectCard({
@@ -18,6 +19,7 @@ export function ProjectCard({
   description,
   imageUrl,
   altText = "Project preview",
+  tags = [],
 }: ProjectCardProps) {
   const [isOpen, setIsOpen] = useState(false);
   const githubUrl = `https://github.com/${githubUsername}/${repoName}`;
@@ -26,7 +28,7 @@ export function ProjectCard({
   const handleClose = () => setIsOpen(false);
 
   return (
-    <div className="cursor-pointer">
+<div className="cursor-pointer">
       {/* Versión contraída: imagen pequeña + título + ícono GitHub */}
       <div
         onClick={handleOpen}
@@ -37,28 +39,46 @@ export function ProjectCard({
           alt={altText}
           className="w-14 h-14 rounded-lg object-cover flex-shrink-0 hover:opacity-80 transition-opacity"
         />
-        <div>
+        <div className="flex flex-col gap-2">
           <h3 className="text-base font-medium">{title}</h3>
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="relative group w-5 h-5 block"
-          >
-           <img src="/github.png"
-              alt=""
-              className="absolute inset-0 w-5 h-5 opacity-100 transition-opacity"
-             />
-
-            <img src="/github-white-icon.webp"
-             alt=""
-             className="absolute inset-0 w-5 h-5  opacity-0 group-hover:opacity-100 transition-opacity"
-             />
-
-             
-           
-          </a>
+          {tags && tags.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              {tags.slice(0, 5).map((tag, index) => (
+                <span
+                  key={index}
+                  className="inline-flex items-center px-2 py-0.5 rounded text-xs border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700"
+                >
+                  {tag}
+                </span>
+              ))}
+              {tags.length > 5 && (
+                <span
+                  className="inline-flex items-center px-2 py-0.5 rounded text-xs border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700"
+                >
+                  +{tags.length - 5}
+                </span>
+              )}
+            </div>
+          )}
         </div>
+        <a
+          href={githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative group w-5 h-5 block"
+        >
+         <img src="/github.png"
+               alt=""
+               className="absolute inset-0 w-5 h-5 opacity-100 transition-opacity"
+              />
+
+          <img src="/github-white-icon.webp"
+           alt=""
+           className="absolute inset-0 w-5 h-5  opacity-0 group-hover:opacity-100 transition-opacity"
+          />
+
+           
+        </a>
       </div>
 
       {/* Pop-up modal */}
@@ -91,6 +111,19 @@ export function ProjectCard({
               <p className="text-zinc-600 text-base line-clamp-3">
                 {description}
               </p>
+
+              {tags && tags.length > 0 && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="inline-flex items-center px-[40%] py-[40%] rounded text-xs border border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-700"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
 
               <div className="mt-4 w-full">
                 <a

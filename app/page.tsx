@@ -1,6 +1,7 @@
 import Header from "@/components/header"
 import { TypingAnimation } from "@/components/typing-animation"
 import { ProjectCard } from "@/components/project-card"
+import projects from "@/public/projects.json"
 
 export default function Home() {
   const title = "Hi, I'm Juan José\nSystems and Computer Engineer."
@@ -31,15 +32,15 @@ export default function Home() {
             </p>
           </div>
         </div>
-       
+
         <div className="flex flex-col sm:w-full space-y-6 text-white mt-8">
-          <p className="font-medium text-sm sm:text-base">
-             I have worked with technologies such as Python, SQL, Next.js, AWS, 
-             and have some experience with Kubernetes and cloud-based environments. 
-             I’m particularly interested in cybersecurity, cloud infrastructure, 
-             and software engineering, and I’m always looking for opportunities to strengthen my skills and take on 
-             new technical challenges.
-          </p>
+            <p className="font-medium text-sm sm:text-base">
+              I have worked with technologies such as Python, SQL, Next.js, AWS, 
+              and have some experience with Kubernetes and cloud-based environments. 
+              I’m particularly interested in cybersecurity, cloud infrastructure, 
+              and software engineering, and I’m always looking for opportunities to strengthen my skills and take on 
+              new technical challenges.
+            </p>
 
           <p className="font-medium text-sm sm:text-base">
              Beyond technology, I consider myself a curious, adaptable, 
@@ -47,19 +48,27 @@ export default function Home() {
              and turning ideas into solutions that create real value.
           </p>
         </div>
+        
+
+
+       
         <div className="flex flex-col sm:w-full space-y-6 text-white mt-8 bg-[#8c8c8c] ">
 
-          <p className="font-bold sm:text-xl"> My Projects</p>
+          <p className="font-bold sm/text-xl"> My Projects</p>
 
         </div>
 
-        <ProjectCard
-          title="Portfolio Personal"
-          githubUsername="juanjo-21"
-          repoName="portfolio"
-          description="Sitio web personal construido con Next.js 16, TypeScript y Tailwind CSS. Incluye animaciones de typing flow, gitflow simulation y demostración de trabajo en equipo."
-          imageUrl="/yo-merengues.jpg"
-        />
+        {projects.map((project, index) => (
+          <ProjectCard
+            key={index}
+            title={project.title}
+            githubUsername={project.githubUsername}
+            repoName={project.repoName}
+            description={project.description}
+            imageUrl={project.imageUrl}
+            tags={project.tags}
+          />
+        ))}
       </main>
     </div>
   )
