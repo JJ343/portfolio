@@ -1,5 +1,6 @@
 import Header from "@/components/header"
 import { TypingAnimation } from "@/components/typing-animation"
+import { ProjectCard } from "@/components/project-card"
 
 export default function Home() {
   const title = "Hi, I'm Juan José\nSystems and Computer Engineer."
@@ -7,8 +8,8 @@ export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-[#30302e] font-sans dark:bg-[#30302e]">
       <Header />
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-16 px-16 bg-[#30302e] dark:bg-black sm:items-start sm:text-left">
-        <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-[#30302e] dark:bg-black sm:items-start sm:text-left">
+        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
           <TypingAnimation
             text={title}
             className="text-4xl font-bold leading-snug  w-full"
@@ -21,16 +22,17 @@ export default function Home() {
             alt="my face" 
             className="rounded-full w-20 h-20 object-cover sm:w-24 sm:h-24"
           />
-          <div className="flex flex-col sm:w-full space-y-2 text-white">
+          <div className="flex flex-col sm:w-full space-y-2 text-white mt-8">
             <p className="font-medium text-sm sm:text-base">
-             I’m a Systems and Computer Engineer from the National University of Colombia, 
-             with experience in software development, process automation, and cloud technologies.
-             I enjoy building practical solutions that combine technology, problem-solving, and 
-             continuous learning.
+              I’m a Systems and Computer Engineer from the National University of Colombia, 
+              with experience in software development, process automation, and cloud technologies.
+              I enjoy building practical solutions that combine technology, problem-solving, and 
+              continuous learning.
             </p>
           </div>
         </div>
-          <div className="flex flex-col sm:w-full space-y-6 text-white mt-8">
+       
+        <div className="flex flex-col sm:w-full space-y-6 text-white mt-8">
           <p className="font-medium text-sm sm:text-base">
              I have worked with technologies such as Python, SQL, Next.js, AWS, 
              and have some experience with Kubernetes and cloud-based environments. 
@@ -45,9 +47,19 @@ export default function Home() {
              and turning ideas into solutions that create real value.
           </p>
         </div>
-        <div>
+        <div className="flex flex-col sm:w-full space-y-6 text-white mt-8 bg-[#8c8c8c] ">
+
+          <p className="font-bold sm:text-xl"> My Projects</p>
 
         </div>
+
+        <ProjectCard
+          title="Portfolio Personal"
+          githubUsername="juanjo-21"
+          repoName="portfolio"
+          description="Sitio web personal construido con Next.js 16, TypeScript y Tailwind CSS. Incluye animaciones de typing flow, gitflow simulation y demostración de trabajo en equipo."
+          imageUrl="/yo-merengues.jpg"
+        />
       </main>
     </div>
   )
