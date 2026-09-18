@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.45" r="0.65">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <g stroke="#7dd3fc" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M345 250 L285 300 L345 350"/>
+    <path d="M455 250 L515 300 L455 350"/>
+  </g>
+  <text x="400" y="430" font-family="Arial, Helvetica, sans-serif" font-size="30" letter-spacing="4" fill="#94a3b8" text-anchor="middle">API REST</text>
+</svg>
