@@ -12,7 +12,7 @@
     "githubUsername": "juanjo-21",
     "repoName": "api-rest",
     "description": "API RESTful construida con Node.js y Express, con autenticación JWT y base de datos PostgreSQL.",
-    "imageUrl": "/placeholder-1.jpg",
+    "imageUrl": "/placeholder-1.svg",
     "tags": ["Node.js", "Express", "PostgreSQL", "JWT", "REST API"]
   },
   {
@@ -20,7 +20,7 @@
     "githubUsername": "juanjo-21",
     "repoName": "dashboard",
     "description": "Panel interactivo de visualización de datos con React, Chart.js y integración con API externa.",
-    "imageUrl": "/placeholder-2.jpg",
+    "imageUrl": "/placeholder-2.svg",
     "tags": ["React", "Chart.js", "D3.js", "API Integration"]
   }
 ]

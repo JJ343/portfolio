@@ -52,23 +52,33 @@ export default function Home() {
 
 
        
-        <div className="flex flex-col sm:w-full space-y-6 text-white mt-8 bg-[#8c8c8c] ">
+        <div className="flex flex-col sm:w-full space-y-6 text-white mt-8 
+                bg-gradient-to-r from-[#2a2a2a] via-[#333333] to-[#2a2a2a]
+                border border-gray-700/50 rounded-xl
+                px-6 py-5
+                shadow-lg shadow-black/20">
 
-          <p className="font-bold sm/text-xl"> My Projects</p>
+          <p className="font-bold text-xl sm:text-2xl tracking-wide">
+            Featured Projects
+          </p>
+
+          <div className="mt-8 grid w-full grid-cols-4 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+            {projects.map((project, index) => (
+              <ProjectCard
+                key={index}
+                title={project.title}
+                githubUsername={project.githubUsername}
+                repoName={project.repoName}
+                description={project.description}
+                imageUrl={project.imageUrl}
+                tags={project.tags}
+              />
+            ))}
+          </div>
 
         </div>
 
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            title={project.title}
-            githubUsername={project.githubUsername}
-            repoName={project.repoName}
-            description={project.description}
-            imageUrl={project.imageUrl}
-            tags={project.tags}
-          />
-        ))}
+        
       </main>
     </div>
   )
