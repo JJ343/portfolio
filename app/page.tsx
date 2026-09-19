@@ -1,4 +1,5 @@
 import Header from "@/components/header"
+import Footer from "@/components/footer"
 import { TypingAnimation } from "@/components/typing-animation"
 import { ProjectCard } from "@/components/project-card"
 import projects from "@/public/projects.json"
@@ -80,6 +81,7 @@ export default function Home() {
 
         
       </main>
+      <Footer />
     </div>
   )
 }

@@ -1,0 +1,19 @@
+[
+  { "name": "Python", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+  { "name": "TypeScript", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { "name": "JavaScript", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+  { "name": "React", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { "name": "Next.js", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { "name": "Node.js", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { "name": "Express", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { "name": "PostgreSQL", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { "name": "Tailwind CSS", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { "name": "AWS", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { "name": "Kubernetes", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+  { "name": "Docker", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { "name": "Git", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+  { "name": "GitHub", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+  { "name": "Vercel", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" },
+  { "name": "HTML5", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+  { "name": "CSS3", "src": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" }
+]
