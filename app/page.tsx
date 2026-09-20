@@ -53,11 +53,11 @@ export default function Home() {
 
 
        
-        <div className="flex flex-col sm:w-full space-y-6 text-white mt-8 
+        <div id="projects" className="flex flex-col sm:w-full space-y-6 text-white mt-8 
                 bg-gradient-to-r from-[#2a2a2a] via-[#333333] to-[#2a2a2a]
                 border border-gray-700/50 rounded-xl
                 px-6 py-5
-                shadow-lg shadow-black/20">
+                shadow-lg shadow-black/20 scroll-mt-20">
 
           <p className="font-bold text-xl sm:text-2xl tracking-wide">
             Featured Projects
