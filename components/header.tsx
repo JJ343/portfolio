@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react"
 
 const MENU_ITEMS = [
   { label: "My Projects", href: "/projects" },
-  { label: "Certificates", href: "/#certificates" },
+  { label: "Certificates", href: "/certificates" },
 ]
 
 // TODO: actualiza estos links con tus datos reales
