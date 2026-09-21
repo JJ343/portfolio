@@ -39,7 +39,8 @@ jobs:
       - name: Build with Next.js
         run: |
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
-          if [[ "$REPO_NAME" == *.github.io ]]; then
+          OWNER="${GITHUB_REPOSITORY_OWNER}"
+          if [[ "$REPO_NAME" == "$OWNER.github.io" ]]; then
             echo "User site detected ($REPO_NAME), building without basePath"
             npm run build
           else
