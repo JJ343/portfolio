@@ -12,9 +12,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const metadata: Metadata = {
   title: "Juan Jose Jimenez - Portfolio",
   description: "My portfolio with my projects",
+  icons: {
+    icon: `${basePath}/github.png`,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
