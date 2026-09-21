@@ -4,20 +4,18 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 const MENU_ITEMS = [
+  { label: "Home", href: "/" },
   { label: "My Projects", href: "/projects" },
   { label: "Certificates", href: "/certificates" },
 ]
 
-// TODO: actualiza estos links con tus datos reales
+
 const SOCIAL_LINKS = {
-  linkedin: "https://www.linkedin.com/",
-  github: "https://github.com/juanjo-21",
+  linkedin: "https://www.linkedin.com/in/juan-jose-jimenez-arboleda-5400a2297",
+  github: "https://github.com/JJ343",
 }
 
-// Correo ofuscado para dificultar scrapers: NO pongas el email literal aquí.
-// Está guardado en Base64 fragmentado y se reconstruye solo en el navegador al hacer click.
-// Para usar tu correo real: Buffer.from("tu@correo.com").toString("base64"), córtalo en 3-4 trozos y pégalos aquí.
-const OBFUSCATED_EMAIL_PARTS = ["dHUtY29y", "cmVvQGVq", "ZW1wbG8u", "Y29t"]
+const OBFUSCATED_EMAIL_PARTS = ["amltZW5l", "am9zZWp1", "YW5AZ21h", "aWwuY29t"]
 
 function getEmail(): string {
   return atob(OBFUSCATED_EMAIL_PARTS.join(""))

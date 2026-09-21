@@ -47,6 +47,7 @@ export function ProjectsExplorer({ categories }: ProjectsExplorerProps) {
     (acc, category) => acc + category.projects.length,
     0
   );
+  const hasProjects = categories.length > 0;
   const isFiltering = normalizedQuery !== "" || activeCategory !== "all";
 
   return (
@@ -61,7 +62,8 @@ export function ProjectsExplorer({ categories }: ProjectsExplorerProps) {
         </p>
       </div>
 
-      {/* Búsqueda rápida + filtro por categoría */}
+      {/* Búsqueda rápida + filtro por categoría (solo si hay proyectos) */}
+      {hasProjects && (
       <div className="mt-8 flex flex-col items-center gap-4">
         <div className="relative w-full max-w-md">
           <svg
@@ -141,23 +143,35 @@ export function ProjectsExplorer({ categories }: ProjectsExplorerProps) {
             : `${totalResults} project${totalResults === 1 ? "" : "s"} in total`}
         </p>
       </div>
+      )}
 
       {filteredCategories.length === 0 ? (
         <div className="mt-8 flex flex-col items-center gap-3 rounded-xl border border-dashed border-white/10 bg-white/[0.02] px-6 py-12 text-center text-white">
-          <p className="text-lg font-semibold">Nothing matches your search</p>
-          <p className="max-w-sm text-sm text-gray-400">
-            Try a different keyword or pick another category to keep exploring.
-          </p>
-          <button
-            type="button"
-            onClick={() => {
-              setQuery("");
-              setActiveCategory("all");
-            }}
-            className="mt-1 rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition-colors hover:bg-gray-200"
-          >
-            Clear filters
-          </button>
+          {hasProjects ? (
+            <>
+              <p className="text-lg font-semibold">Nothing matches your search</p>
+              <p className="max-w-sm text-sm text-gray-400">
+                Try a different keyword or pick another category to keep exploring.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setQuery("");
+                  setActiveCategory("all");
+                }}
+                className="mt-1 rounded-full bg-white px-4 py-2 text-xs font-semibold text-black transition-colors hover:bg-gray-200"
+              >
+                Clear filters
+              </button>
+            </>
+          ) : (
+            <>
+              <p className="text-lg font-semibold">No projects yet</p>
+              <p className="max-w-sm text-sm text-gray-400">
+                There are no projects to show. Please check back later.
+              </p>
+            </>
+          )}
         </div>
       ) : (
         filteredCategories.map((category) => (
@@ -173,19 +187,35 @@ export function ProjectsExplorer({ categories }: ProjectsExplorerProps) {
               {formatCategoryName(category.name)}
             </p>
 
-            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
-              {category.projects.map((project, index) => (
-                <ProjectCard
-                  key={`${project.repoName}-${index}`}
-                  title={project.title}
-                  githubUsername={project.githubUsername}
-                  repoName={project.repoName}
-                  description={project.description}
-                  imageUrl={project.imageUrl}
-                  tags={project.tags}
-                />
-              ))}
-            </div>
+            {category.projects.length === 1 ? (
+              <div className="flex w-full justify-center">
+                <div className="w-full sm:max-w-[calc(50%-0.5rem)]">
+                  <ProjectCard
+                    key={category.projects[0].repoName}
+                    title={category.projects[0].title}
+                    githubUsername={category.projects[0].githubUsername}
+                    repoName={category.projects[0].repoName}
+                    description={category.projects[0].description}
+                    imageUrl={category.projects[0].imageUrl}
+                    tags={category.projects[0].tags}
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+                {category.projects.map((project, index) => (
+                  <ProjectCard
+                    key={`${project.repoName}-${index}`}
+                    title={project.title}
+                    githubUsername={project.githubUsername}
+                    repoName={project.repoName}
+                    description={project.description}
+                    imageUrl={project.imageUrl}
+                    tags={project.tags}
+                  />
+                ))}
+              </div>
+            )}
           </section>
         ))
       )}

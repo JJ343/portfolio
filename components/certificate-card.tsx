@@ -18,9 +18,9 @@ export function CertificateCard({
       rel="noopener noreferrer"
       aria-label={`${title} — ver certificado`}
       title={title}
-      className="group/card relative flex aspect-square w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.07] hover:shadow-xl hover:shadow-black/40"
+      className="group/card relative flex w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-white/[0.07] hover:shadow-xl hover:shadow-black/40"
     >
-      <div className="relative min-h-0 flex-1 overflow-hidden">
+      <div className="relative aspect-square w-full flex-none overflow-hidden">
         <img
           src={imageUrl}
           alt={altText}

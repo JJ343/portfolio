@@ -10,9 +10,24 @@ export type Project = {
   category?: string;
 };
 
+type RawProject = Omit<Project, "description"> & {
+  description: string | string[];
+};
+
+function normalizeProject(project: RawProject): Project {
+  return {
+    ...project,
+    description: Array.isArray(project.description)
+      ? project.description.join("\n\n")
+      : project.description,
+  };
+}
+
 const FEATURED_LIMIT = 4;
 
-export const allProjects: Project[] = rawProjects as Project[];
+export const allProjects: Project[] = (rawProjects as RawProject[]).map(
+  normalizeProject
+);
 
 export function getFeaturedProjects(): Project[] {
   return allProjects

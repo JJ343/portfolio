@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 interface ProjectCardProps {
   title: string;
@@ -32,7 +33,12 @@ export function ProjectCard({
       if (e.key === "Escape") setIsOpen(false);
     };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
   }, [isOpen]);
 
   return (
@@ -96,18 +102,19 @@ export function ProjectCard({
         </div>
       </div>
 
-      {/* Pop-up modal */}
-      {isOpen && (
-        <div
-          onClick={(e) => {
-            if (e.target === e.currentTarget) handleClose();
-          }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-md"
-        >
+      {/* Pop-up modal (portal a body para escapar de ancestros con transform) */}
+      {isOpen &&
+        typeof document !== "undefined" &&
+        createPortal(
+          <div
+            onClick={handleClose}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md"
+          >
           <div
             role="dialog"
             aria-modal="true"
-            className="relative w-full max-w-lg animate-[modal-in_0.25s_ease-out] overflow-hidden rounded-2xl border border-white/10 bg-[#262624] shadow-2xl shadow-black/60"
+            onClick={(e) => e.stopPropagation()}
+            className="relative flex max-h-[85vh] w-full max-w-lg animate-[modal-in_0.25s_ease-out] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#262624] shadow-2xl shadow-black/60"
           >
             {/* Botón close */}
             <button
@@ -128,17 +135,18 @@ export function ProjectCard({
               </svg>
             </button>
 
-            {/* Imagen del proyecto */}
-            <img
-              src={imageUrl}
-              alt={altText}
-              className="h-56 w-full object-cover sm:h-64"
-            />
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+              {/* Imagen del proyecto */}
+              <img
+                src={imageUrl}
+                alt={altText}
+                className="h-56 w-full flex-none object-cover sm:h-64"
+              />
 
-            {/* Contenido del pop-up */}
-            <div className="flex flex-col gap-4 p-6">
+              {/* Contenido del pop-up */}
+              <div className="flex flex-col gap-4 p-6">
               <h3 className="text-2xl font-bold text-white">{title}</h3>
-              <p className="text-sm leading-relaxed text-gray-300">
+              <p className="text-sm leading-relaxed whitespace-pre-line text-gray-300">
                 {description}
               </p>
 
@@ -164,9 +172,11 @@ export function ProjectCard({
                 <img src="/github.png" alt="" className="h-5 w-5" />
                 Ver repositorio en GitHub
               </a>
+              </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

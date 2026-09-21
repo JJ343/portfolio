@@ -79,19 +79,41 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
-            {featuredProjects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                title={project.title}
-                githubUsername={project.githubUsername}
-                repoName={project.repoName}
-                description={project.description}
-                imageUrl={project.imageUrl}
-                tags={project.tags}
-              />
-            ))}
-          </div>
+          {featuredProjects.length === 0 ? (
+            <div className="mt-8 flex flex-col items-center gap-2 rounded-xl border border-dashed border-white/10 bg-white/[0.02] px-6 py-10 text-center">
+              <p className="text-base font-semibold text-white">No featured projects yet</p>
+              <p className="max-w-sm text-sm text-gray-400">
+                Check the full list or come back later for new projects.
+              </p>
+            </div>
+          ) : featuredProjects.length === 1 ? (
+            <div className="mt-8 flex w-full justify-center">
+              <div className="w-full sm:max-w-[calc(50%-0.5rem)]">
+                <ProjectCard
+                  title={featuredProjects[0].title}
+                  githubUsername={featuredProjects[0].githubUsername}
+                  repoName={featuredProjects[0].repoName}
+                  description={featuredProjects[0].description}
+                  imageUrl={featuredProjects[0].imageUrl}
+                  tags={featuredProjects[0].tags}
+                />
+              </div>
+            </div>
+          ) : (
+            <div className="mt-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+              {featuredProjects.map((project, index) => (
+                <ProjectCard
+                  key={index}
+                  title={project.title}
+                  githubUsername={project.githubUsername}
+                  repoName={project.repoName}
+                  description={project.description}
+                  imageUrl={project.imageUrl}
+                  tags={project.tags}
+                />
+              ))}
+            </div>
+          )}
 
         </div>
         </Reveal>

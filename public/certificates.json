@@ -1,22 +1,22 @@
 [
   {
-    "title": "AWS Cloud Practitioner",
-    "imageUrl": "/placeholder-1.svg",
-    "certificateUrl": "https://www.credly.com/"
+    "title": "AWS Academy Graduate - Cloud Foundations - Training Badge",
+    "imageUrl": "https://images.credly.com/size/340x340/images/e3541a0c-dd4a-4820-8052-5001006efc85/blob",
+    "certificateUrl": "https://www.credly.com/badges/2411081a-17b8-4e34-89fa-bb599f647852/public_url"
   },
   {
-    "title": "Python Professional",
-    "imageUrl": "/placeholder-2.svg",
-    "certificateUrl": "https://www.credly.com/"
+    "title": "AWS Academy Graduate - Cloud Security Foundations - Training Badge",
+    "imageUrl": "https://images.credly.com/size/340x340/images/7f7ea828-a10d-44f8-8baa-58a9c1af7671/blob",
+    "certificateUrl": "https://www.credly.com/badges/db8f3742-12b0-4df3-b52f-a00943642f94/public_url"
   },
   {
-    "title": "AWS Cloud Practitioners",
-    "imageUrl": "/placeholder-1.svg",
-    "certificateUrl": "https://www.credly.com/"
+    "title": "Fortinet Certified Associate Cybersecurity",
+    "imageUrl": "https://images.credly.com/size/340x340/images/20082fc1-94af-4773-9df0-28856b566748/image.png",
+    "certificateUrl": "https://www.credly.com/badges/cd453903-1622-4499-a7eb-f3fe8b35e64b/public_url"
   },
   {
-    "title": "Python Professionals",
-    "imageUrl": "/placeholder-2.svg",
-    "certificateUrl": "https://www.credly.com/"
+    "title": "Google Cloud Computing Foundations Certificate",
+    "imageUrl": "https://images.credly.com/size/340x340/images/4dda8ae4-99ee-476c-bca3-6f0adbab42fe/image.png",
+    "certificateUrl": "https://www.credly.com/badges/50ce4344-40d5-470d-a06c-92d454929a24/public_url"
   }
 ]
