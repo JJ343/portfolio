@@ -1,6 +1,7 @@
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { TypingAnimation } from "@/components/typing-animation"
+import { Reveal } from "@/components/reveal"
 import { ProjectCard } from "@/components/project-card"
 import { getFeaturedProjects } from "@/lib/projects"
 import Link from "next/link"
@@ -20,6 +21,7 @@ export default function Home() {
             speed={90}
           />
         </div>
+        <Reveal className="w-full">
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
           <img 
             src="/yo-merengues.jpg" 
@@ -35,7 +37,9 @@ export default function Home() {
             </p>
           </div>
         </div>
+        </Reveal>
 
+        <Reveal delayMs={100} className="w-full">
         <div className="flex flex-col sm:w-full space-y-6 text-white mt-8">
             <p className="font-medium text-sm sm:text-base">
               I have worked with technologies such as Python, SQL, Next.js, AWS, 
@@ -51,10 +55,12 @@ export default function Home() {
              and turning ideas into solutions that create real value.
           </p>
         </div>
+        </Reveal>
         
 
 
        
+        <Reveal delayMs={150} className="w-full sm:w-full">
         <div id="projects" className="flex flex-col sm:w-full space-y-6 text-white mt-8 
                 bg-gradient-to-r from-[#2a2a2a] via-[#333333] to-[#2a2a2a]
                 border border-gray-700/50 rounded-xl
@@ -73,7 +79,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-8 grid w-full grid-cols-4 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+          <div className="mt-8 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
             {featuredProjects.map((project, index) => (
               <ProjectCard
                 key={index}
@@ -88,6 +94,7 @@ export default function Home() {
           </div>
 
         </div>
+        </Reveal>
 
         
       </main>

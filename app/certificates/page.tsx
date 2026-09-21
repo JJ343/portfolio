@@ -28,7 +28,7 @@ export default function CertificatesPage() {
           <div className="mt-8 flex flex-col items-center gap-3 rounded-xl border border-dashed border-white/10 bg-white/[0.02] px-6 py-12 text-center text-white">
             <p className="text-lg font-semibold">No certificates yet</p>
             <p className="max-w-sm text-sm text-gray-400">
-              I haven't added any certificates yet. Please check back later for
+              I haven&apos;t added any certificates yet. Please check back later for
             </p>
           </div>
         ) : (
