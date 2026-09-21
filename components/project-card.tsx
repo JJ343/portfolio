@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { withBasePath } from "@/lib/base-path";
 
 interface ProjectCardProps {
   title: string;
@@ -70,12 +71,12 @@ export function ProjectCard({
               className="group relative block h-5 w-5 flex-shrink-0"
             >
               <img
-                src="/github.png"
+                src={withBasePath("/github.png")}
                 alt=""
                 className="absolute inset-0 h-5 w-5 opacity-100 transition-opacity"
               />
               <img
-                src="/github-white-icon.webp"
+                src={withBasePath("/github-white-icon.webp")}
                 alt=""
                 className="absolute inset-0 h-5 w-5 opacity-0 transition-opacity group-hover:opacity-100"
               />
@@ -169,7 +170,7 @@ export function ProjectCard({
                 rel="noopener noreferrer"
                 className="mt-1 inline-flex items-center justify-center gap-2 rounded-lg bg-white px-4 py-3 text-sm font-semibold text-black transition-colors hover:bg-gray-200"
               >
-                <img src="/github.png" alt="" className="h-5 w-5" />
+                <img src={withBasePath("/github.png")} alt="" className="h-5 w-5" />
                 Ver repositorio en GitHub
               </a>
               </div>

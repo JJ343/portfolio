@@ -4,6 +4,7 @@ import { TypingAnimation } from "@/components/typing-animation"
 import { Reveal } from "@/components/reveal"
 import { ProjectCard } from "@/components/project-card"
 import { getFeaturedProjects } from "@/lib/projects"
+import { withBasePath } from "@/lib/base-path"
 import Link from "next/link"
 
 export default function Home() {
@@ -24,7 +25,7 @@ export default function Home() {
         <Reveal className="w-full">
         <div className="flex flex-col sm:flex-row items-center gap-4 mt-8">
           <img 
-            src="/yo-merengues.jpg" 
+            src={withBasePath("/yo-merengues.jpg")} 
             alt="my face" 
             className="rounded-full w-20 h-20 object-cover sm:w-24 sm:h-24"
           />
