@@ -1,0 +1,68 @@
+name: Deploy Next.js to Pages
+
+on:
+  push:
+    branches: ["main"] 
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci;
+          elif [ -f yarn.lock ]; then yarn install --frozen-lockfile;
+          else npm install;
+          fi
+
+      - name: Build with Next.js
+        run: |
+          REPO_NAME="${GITHUB_REPOSITORY#*/}"
+          if [[ "$REPO_NAME" == *.github.io ]]; then
+            echo "User site detected ($REPO_NAME), building without basePath"
+            npm run build
+          else
+            echo "Project site detected, building with basePath=/$REPO_NAME"
+            NEXT_BASE_PATH="/$REPO_NAME" npm run build
+          fi
+          echo "--- out/ contents ---"
+          ls -la out
+          test -f out/.nojekyll || (echo "::error::out/.nojekyll missing (public/.nojekyll not copied)" && exit 1)
+          test -f out/index.html || (echo "::error::out/index.html missing" && exit 1)
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
