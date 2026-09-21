@@ -2,10 +2,12 @@ import Header from "@/components/header"
 import Footer from "@/components/footer"
 import { TypingAnimation } from "@/components/typing-animation"
 import { ProjectCard } from "@/components/project-card"
-import projects from "@/public/projects.json"
+import { getFeaturedProjects } from "@/lib/projects"
+import Link from "next/link"
 
 export default function Home() {
   const title = "Hi, I'm Juan José\nSystems and Computer Engineer."
+  const featuredProjects = getFeaturedProjects()
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-[#30302e] font-sans dark:bg-[#30302e]">
@@ -59,12 +61,20 @@ export default function Home() {
                 px-6 py-5
                 shadow-lg shadow-black/20 scroll-mt-20">
 
-          <p className="font-bold text-xl sm:text-2xl tracking-wide">
-            Featured Projects
-          </p>
+          <div className="flex w-full items-center justify-between gap-4">
+            <p className="font-bold text-xl sm:text-2xl tracking-wide">
+              Featured Projects
+            </p>
+            <Link
+              href="/projects"
+              className="flex-shrink-0 text-sm font-medium text-gray-300 underline-offset-4 transition-colors hover:text-white hover:underline"
+            >
+              View all projects →
+            </Link>
+          </div>
 
           <div className="mt-8 grid w-full grid-cols-4 gap-4 sm:grid-cols-2 lg:grid-cols-2">
-            {projects.map((project, index) => (
+            {featuredProjects.map((project, index) => (
               <ProjectCard
                 key={index}
                 title={project.title}

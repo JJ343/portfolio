@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 const MENU_ITEMS = [
-  { label: "My Projects", href: "/#projects" },
+  { label: "My Projects", href: "/projects" },
   { label: "Certificates", href: "/#certificates" },
 ]
 
