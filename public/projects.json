@@ -1,3 +1,16 @@
 [
- 
+ {
+    "title": "Api rest 40k",
+    "githubUsername": "JJ343",
+    "repoName": "Api-rest-40k",
+    "description": [
+    "Sample REST API for Warhammer 40k Primarchs and their Chapters, built to show how I structure a Spring Boot API: Controller → Service → Repository, record DTOs with validation, explicit mappers and domain exceptions with ProblemDetail (RFC 7807).",
+    "Stack: Java 21, Spring Boot 4.1 (WebMVC, Data JPA, Validation, Security, Actuator), PostgreSQL 16 + Flyway, JWT (jjwt), springdoc-openapi and Docker Compose.",
+    "Highlights: stateless JWT auth (public GET, write requires Bearer), Flyway as only schema source (V1 schema + V2 seed with 8 primarchs/chapters), pagination, OpenAPI docs and full-stack run with `docker compose up --build`."
+    ],
+    "tags": ["Java", "Java Spring Boot", "SQL", "PostgreSQL", "Docker", "Swagger"],
+    "imageUrl": "/projects_images/api-rest-40k.png",
+    "category": "Backend"
+
+ }
 ]
