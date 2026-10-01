@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/base-path";
+
 interface CertificateCardProps {
   title: string;
   imageUrl: string;
@@ -22,7 +24,7 @@ export function CertificateCard({
     >
       <div className="relative aspect-square w-full flex-none overflow-hidden">
         <img
-          src={imageUrl}
+          src={withBasePath(imageUrl)}
           alt={altText}
           className="h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
         />

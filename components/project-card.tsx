@@ -51,7 +51,7 @@ export function ProjectCard({
       >
         <div className="relative min-h-0 flex-1 overflow-hidden">
           <img
-            src={imageUrl}
+            src={withBasePath(imageUrl)}
             alt={altText}
             className="h-full w-full object-cover transition-transform duration-500 group-hover/card:scale-105"
           />
@@ -139,7 +139,7 @@ export function ProjectCard({
             <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
               {/* Imagen del proyecto */}
               <img
-                src={imageUrl}
+                src={withBasePath(imageUrl)}
                 alt={altText}
                 className="h-56 w-full flex-none object-cover sm:h-64"
               />
